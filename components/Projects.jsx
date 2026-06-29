@@ -34,7 +34,7 @@ const projects = [
     category: "MERN Stack",
     desc: "Track income and expenses with charts and category breakdowns.",
     tech: ["React", "Express", "MongoDB"],
-    code:"https://github.com/Iamarslansher/finance-tracker-frontend",
+    code: "https://github.com/Iamarslansher/finance-tracker-frontend",
     live: "https://arslan-financetracker.netlify.app",
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     desc: "An interactive coding resources and tutorials hub.",
     tech: ["React", "Next.js"],
     code: "https://github.com/Iamarslansher/coderInstitute-frontend",
-    live: "https://labofcode.vercel.app/"
+    live: "https://labofcode.vercel.app/",
   },
   {
     title: "YouthSpark",
@@ -59,7 +59,7 @@ const projects = [
     desc: "A youth empowerment platform with event and program listings.",
     tech: ["React", "Tailwind CSS"],
     code: "https://github.com/Iamarslansher/youth-website",
-    live: "https://youthspark.vercel.app/"
+    live: "https://youthspark.vercel.app/",
   },
   {
     title: "Medcare",
@@ -67,7 +67,7 @@ const projects = [
     desc: "A healthcare landing experience with appointment booking UI.",
     tech: ["React", "Framer Motion"],
     code: "https://github.com/Iamarslansher/medical-health-care",
-    live: "https://arslan-medcare.netlify.app/"
+    live: "https://arslan-medcare.netlify.app/",
   },
   {
     title: "Pizzeria Web",
@@ -75,23 +75,23 @@ const projects = [
     desc: "A restaurant website with menu showcase and ordering UI.",
     tech: ["React", "CSS3", "Redux"],
     code: "https://github.com/Iamarslansher/pizzeria-web-redux",
-    live: "https://pizzeria-navy.vercel.app/"
+    live: "https://pizzeria-navy.vercel.app/",
   },
   {
     title: "Coin Tracker Crypto",
     category: "Frontend",
     desc: "Live crypto price tracker with charts and watchlists.",
     tech: ["React", "Chart.js"],
-    code:"https://github.com/Iamarslansher/coin-tracker",
-    live: "https://arsalan-coin-tracker.netlify.app/"
+    code: "https://github.com/Iamarslansher/coin-tracker",
+    live: "https://arsalan-coin-tracker.netlify.app/",
   },
   {
     title: "Personal Portfolio",
     category: "Frontend",
     desc: "A previous personal portfolio iteration showcasing my work.",
     tech: ["Next.js", "Tailwind CSS"],
-    code: "https://github.com/Iamarslansher/arsalan-portfolio",
-    live:""
+    code: "https://github.com/Iamarslansher/my_Portfolio",
+    live: "",
   },
   {
     title: "Task Management App",
@@ -99,7 +99,7 @@ const projects = [
     desc: "A kanban-style task manager with drag and drop.",
     tech: ["React", "Local Storage"],
     code: "hhtps://github.com/Iamarslansher",
-    live: "https://arslan-taskmanagement.netlify.app"
+    live: "https://arslan-taskmanagement.netlify.app",
   },
   {
     title: "SchedNova",
@@ -107,7 +107,7 @@ const projects = [
     desc: "A scheduling app with auth, scheduling, and admin dashboard.",
     tech: ["React", "Local Storage"],
     code: "https://github.com/Iamarslansher/SchedNova",
-    live: ""
+    live: "",
   },
   {
     title: "Weather Forecast App",

@@ -1,19 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Globe, Briefcase, ShoppingCart, UserSquare2 } from "lucide-react";
+import {
+  Code2,
+  Globe,
+  Briefcase,
+  ShoppingCart,
+  UserSquare2,
+} from "lucide-react";
 
 const services = [
+  {
+    icon: Code2,
+    title: "Software Development",
+    desc: "Building robust and scalable software solutions tailored to your business needs.",
+  },
   {
     icon: Code2,
     title: "Frontend Development",
     desc: "Building fast, responsive, and accessible interfaces with React and Next.js.",
   },
-  {
-    icon: Globe,
-    title: "Web Development",
-    desc: "End-to-end web applications using the MERN stack, from API to UI.",
-  },
+
   {
     icon: Briefcase,
     title: "Business Websites",
@@ -23,6 +30,16 @@ const services = [
     icon: ShoppingCart,
     title: "E-Commerce Websites",
     desc: "Online stores with smooth checkout flows and clean product experiences.",
+  },
+   {
+    icon: Globe,
+    title: "Web Development",
+    desc: "End-to-end web applications using the MERN stack, from API to UI.",
+  },
+  {
+    icon: Globe,
+    title: "SEO Optimization",
+    desc: "Improving your website's visibility and ranking on search engines."
   },
   {
     icon: UserSquare2,
@@ -62,7 +79,9 @@ export default function Services() {
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Icon className="text-primary" size={26} />
                 </div>
-                <h3 className="font-display text-lg font-semibold mb-2">{s.title}</h3>
+                <h3 className="font-display text-lg font-semibold mb-2">
+                  {s.title}
+                </h3>
                 <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
               </motion.div>
             );
