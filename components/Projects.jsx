@@ -11,7 +11,7 @@ const projects = [
     desc: "A full booking platform with auth, scheduling, and admin dashboard.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
     code: "https://github.com/Iamarslansher/ServiceSmart",
-    live: "https://servicesmart.vercel.app/",
+    live: "https://service-smart.vercel.app/",
   },
   {
     title: "E-Commerce Platform",
@@ -22,12 +22,12 @@ const projects = [
     live: "https://olx-mearm-stack.netlify.app/",
   },
   {
-    title: "Social Media Platform",
+    title: "Luma Social App",
     category: "Frontend",
     desc: "A social feed UI with posts, likes, comments, and profiles.",
-    tech: ["Next.js", "Tailwind CSS", "Firebase"],
+    tech: ["Next.js", "Tailwind CSS", "Firebase", "Cloudinary"],
     code: "https://github.com/Iamarslansher/social-mediaApp",
-    live: "",
+    live: "https://luma-social-app.vercel.app/",
   },
   {
     title: "Expense Tracker",
