@@ -47,7 +47,7 @@ const projects = [
   },
   {
     title: "Lab of Code",
-    category: "Frontend",
+    category: "MERN Stack",
     desc: "An interactive coding resources and tutorials hub.",
     tech: ["React", "Next.js"],
     code: "https://github.com/Iamarslansher/coderInstitute-frontend",
