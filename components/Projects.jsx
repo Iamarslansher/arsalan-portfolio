@@ -41,7 +41,7 @@ const projects = [
     title: "Todo List",
     category: "MERN Stack",
     desc: "A simple todo list app with authentication and task management.",
-    tech: ["Next.js", "Local Storage"],
+    tech: ["Next.js", "express.js", "Node.js", "MongoDB"],
     code: "https://github.com/Iamarslansher/todolist-nextjs",
     live: "https://todolist-nextjs-rho.vercel.app/",
   },
@@ -49,7 +49,7 @@ const projects = [
     title: "Lab of Code",
     category: "MERN Stack",
     desc: "An interactive coding resources and tutorials hub.",
-    tech: ["React", "Next.js"],
+    tech: ["React", "express.js", "Node.js", "MongoDB"],
     code: "https://github.com/Iamarslansher/coderInstitute-frontend",
     live: "https://labofcode.vercel.app/",
   },
@@ -107,7 +107,7 @@ const projects = [
     desc: "A scheduling app with auth, scheduling, and admin dashboard.",
     tech: ["React", "Local Storage"],
     code: "https://github.com/Iamarslansher/SchedNova",
-    live: "",
+    live: "https://schednova.netlify.app/",
   },
   {
     title: "Weather Forecast App",
@@ -115,7 +115,15 @@ const projects = [
     desc: "A weather forecasting app with real-time updates and alerts.",
     tech: ["React", "Local Storage"],
     code: "https://github.com/Iamarslansher/weather-app",
-    live: "https://schednova.netlify.app/",
+    live: "https://arslan-weather-app.netlify.app/",
+  },
+  {
+    title: "Sasta Shop App",
+    category: "Frontend",
+    desc: "A e-commerce website for a local shop with product listings and shopping cart.",
+    tech: ["React", "Firebase"],
+    code: "https://github.com/Iamarslansher/sasta-app",
+    live: "https://sasta-app.vercel.app/",
   },
 ];
 
