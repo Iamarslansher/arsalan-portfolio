@@ -3,48 +3,82 @@
 import { motion } from "framer-motion";
 import {
   Code2,
-  Globe,
   Briefcase,
   ShoppingCart,
+  Globe,
   UserSquare2,
+  LayoutDashboard,
+  Smartphone,
+  Database,
+  Rocket,
+  Wrench,
 } from "lucide-react";
 
 const services = [
   {
     icon: Code2,
-    title: "Software Development",
-    desc: "Building robust and scalable software solutions tailored to your business needs.",
-  },
-  {
-    icon: Code2,
     title: "Frontend Development",
-    desc: "Building fast, responsive, and accessible interfaces with React and Next.js.",
+    desc: "Building modern, responsive, and user-friendly web interfaces using React.js, Next.js, Tailwind CSS, Bootstrap, and JavaScript.",
+  },
+
+  {
+    icon: Globe,
+    title: "MERN Stack Development",
+    desc: "Developing complete web applications using MongoDB, Express.js, React.js, and Node.js with secure APIs and authentication.",
   },
 
   {
     icon: Briefcase,
     title: "Business Websites",
-    desc: "Professional, conversion-focused websites that represent your brand well.",
+    desc: "Creating professional business websites that strengthen your online presence and help convert visitors into customers.",
   },
+
   {
     icon: ShoppingCart,
     title: "E-Commerce Websites",
-    desc: "Online stores with smooth checkout flows and clean product experiences.",
+    desc: "Building responsive online stores with product management, shopping carts, authentication, and secure checkout experiences.",
   },
-   {
-    icon: Globe,
-    title: "Web Development",
-    desc: "End-to-end web applications using the MERN stack, from API to UI.",
+
+  {
+    icon: LayoutDashboard,
+    title: "Admin Dashboards",
+    desc: "Developing interactive admin dashboards with analytics, CRUD operations, authentication, and responsive layouts.",
   },
+
+  {
+    icon: Smartphone,
+    title: "Responsive Web Design",
+    desc: "Designing websites that deliver a seamless experience across desktops, tablets, and mobile devices.",
+  },
+
+  {
+    icon: Database,
+    title: "REST API Integration",
+    desc: "Integrating REST APIs, Firebase services, and backend systems to create dynamic and data-driven applications.",
+  },
+
+  {
+    icon: Rocket,
+    title: "Website Deployment",
+    desc: "Deploying and managing web applications on Vercel, Netlify, and Hostinger with performance optimization.",
+  },
+
   {
     icon: Globe,
     title: "SEO Optimization",
-    desc: "Improving your website's visibility and ranking on search engines."
+    desc: "Improving website performance, metadata, and technical SEO to increase visibility on search engines.",
   },
+
   {
     icon: UserSquare2,
-    title: "Personal Portfolio Websites",
-    desc: "Unique, animated portfolios that help you stand out and get hired.",
+    title: "Portfolio Websites",
+    desc: "Designing unique personal portfolio websites with modern UI, animations, and responsive layouts for professionals.",
+  },
+
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    desc: "Providing bug fixes, feature updates, performance improvements, and ongoing website maintenance.",
   },
 ];
 
