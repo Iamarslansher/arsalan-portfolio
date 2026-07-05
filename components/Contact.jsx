@@ -42,12 +42,15 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
 
+    // "service_j06z94o", services_ID
+    // template_06rc2uv template_ID
+    // lrTBGBUj8GvY5mDMc public_key
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_j06z94o",
+        "template_06rc2uv",
         formRef.current,
-        "YOUR_PUBLIC_KEY",
+        "lrTBGBUj8GvY5mDMc",
       )
       .then(() => {
         setStatus("success");
