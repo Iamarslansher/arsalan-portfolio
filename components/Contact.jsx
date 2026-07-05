@@ -86,13 +86,15 @@ export default function Contact() {
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <input
-                name="user_name"
+                // name="user_name"
+                name="name"
                 required
                 placeholder="Your Name"
                 className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"
               />
               <input
-                name="user_email"
+                // name="user_email"
+                name="email"
                 type="email"
                 required
                 placeholder="Your Email"
