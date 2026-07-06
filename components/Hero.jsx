@@ -75,7 +75,10 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-[2.5rem] glass border-2 border-primary/30 rotate-6" />
             <div className="absolute inset-0 rounded-[2.5rem] glass border-2 border-secondary/30 -rotate-3 flex items-center justify-center">
               <span className="font-display text-7xl sm:text-8xl font-bold text-gradient">
-                AS
+                {/* AS */}
+                <span className="text-gradient">{"<AS"}</span>
+                <span className="text-white">{" />"}</span>
+                {/*  */}
               </span>
             </div>
           </div>
