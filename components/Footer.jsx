@@ -71,17 +71,35 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-muted">
-          © {new Date().getFullYear()} Arsalan Sher. All rights reserved.
-        </p>
-        <a
-          href="#home"
-          className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center hover:-translate-y-1 transition-transform"
-          aria-label="Back to top"
-        >
-          <ArrowUp size={18} />
-        </a>
+      <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Left */}
+          <p className="text-xs text-muted text-center sm:text-left">
+            © {new Date().getFullYear()} Arsalan Sher. All rights reserved.
+          </p>
+
+          {/* Right */}
+          <div className="flex items-center gap-4">
+            {/* Status */}
+            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
+              </span>
+
+              <span className="text-xs text-muted whitespace-nowrap">
+                Open to Internships • Freelance • Collaborations
+              </span>
+            </div>
+            <a
+              href="#home"
+              className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center hover:-translate-y-1 transition-transform"
+              aria-label="Back to top"
+            >
+              <ArrowUp size={18} />
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
