@@ -22,6 +22,14 @@ const projects = [
     live: "https://olx-mearm-stack.netlify.app/",
   },
   {
+    title: "Echoes of Independence",
+    category: "Frontend",
+    desc: "An interactive storytelling website celebrating Pakistan's journey through history with immersive animations, modern web technologies, and cinematic UI.",
+    tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion"],
+    code: "https://github.com/Iamarslansher/echoes-of-independence",
+    live: "https://echoes-of-independence.vercel.app/",
+  },
+  {
     title: "Luma Social App",
     category: "Frontend",
     desc: "A social feed UI with posts, likes, comments, and profiles.",

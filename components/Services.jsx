@@ -3,17 +3,19 @@
 import { motion } from "framer-motion";
 import {
   Code2,
+  Globe,
   Briefcase,
   ShoppingCart,
-  Globe,
-  UserSquare2,
   LayoutDashboard,
   Smartphone,
   Database,
   Rocket,
+  UserSquare2,
   Wrench,
+  Users,
+  Paintbrush,
+  ShieldCheck,
 } from "lucide-react";
-
 const services = [
   {
     icon: Code2,
@@ -24,7 +26,7 @@ const services = [
   {
     icon: Globe,
     title: "MERN Stack Development",
-    desc: "Developing complete web applications using MongoDB, Express.js, React.js, and Node.js with secure APIs and authentication.",
+    desc: "Developing full-stack web applications using MongoDB, Express.js, React.js, and Node.js with secure authentication and REST APIs.",
   },
 
   {
@@ -42,7 +44,7 @@ const services = [
   {
     icon: LayoutDashboard,
     title: "Admin Dashboards",
-    desc: "Developing interactive admin dashboards with analytics, CRUD operations, authentication, and responsive layouts.",
+    desc: "Developing responsive admin dashboards with analytics, authentication, CRUD operations, and data visualization.",
   },
 
   {
@@ -54,7 +56,7 @@ const services = [
   {
     icon: Database,
     title: "REST API Integration",
-    desc: "Integrating REST APIs, Firebase services, and backend systems to create dynamic and data-driven applications.",
+    desc: "Integrating REST APIs, Firebase services, and backend systems to build dynamic and data-driven applications.",
   },
 
   {
@@ -64,15 +66,27 @@ const services = [
   },
 
   {
-    icon: Globe,
-    title: "SEO Optimization",
-    desc: "Improving website performance, metadata, and technical SEO to increase visibility on search engines.",
+    icon: Paintbrush,
+    title: "UI Implementation",
+    desc: "Converting modern Figma or Adobe XD designs into clean, responsive, and pixel-perfect web interfaces.",
+  },
+
+  {
+    icon: ShieldCheck,
+    title: "Performance & SEO",
+    desc: "Optimizing website speed, accessibility, metadata, and technical SEO for a better user experience.",
   },
 
   {
     icon: UserSquare2,
     title: "Portfolio Websites",
-    desc: "Designing unique personal portfolio websites with modern UI, animations, and responsive layouts for professionals.",
+    desc: "Designing unique portfolio websites with modern UI, smooth animations, and fully responsive layouts.",
+  },
+
+  {
+    icon: Users,
+    title: "Team Collaboration",
+    desc: "Working effectively with designers, developers, and project managers using Git, GitHub, Agile workflows, and version control.",
   },
 
   {

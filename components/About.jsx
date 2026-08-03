@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 
 const stats = [
-  { label: "Projects Completed", value: 25, suffix: "+" },
+  { label: "Projects Completed", value: 30, suffix: "+" },
   { label: "Technologies Used", value: 20, suffix: "+" },
   { label: "Years Learning", value: 2, suffix: "+" },
 ];
