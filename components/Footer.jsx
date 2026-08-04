@@ -1,6 +1,23 @@
 "use client";
+import { useEffect, useState } from "react";
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  Facebook,
+  ArrowUp,
+  Eye,
+} from "lucide-react";
 
-import { Github, Linkedin, Instagram, Facebook, ArrowUp } from "lucide-react";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment,
+} from "firebase/firestore";
+
+import { db } from "@/lib/firebase";
 
 const links = [
   { name: "Home", href: "#home" },
@@ -26,6 +43,43 @@ const socials = [
 ];
 
 export default function Footer() {
+  const [visitors, setVisitors] = useState(null);
+
+useEffect(() => {
+  const updateVisitors = async () => {
+    try {
+      const visitorRef = doc(db, "portfolio", "visitors");
+
+      const alreadyVisited = localStorage.getItem("portfolio-visited");
+
+      if (!alreadyVisited) {
+        const snapshot = await getDoc(visitorRef);
+
+        if (snapshot.exists()) {
+          await updateDoc(visitorRef, {
+            count: increment(1),
+          });
+        } else {
+          await setDoc(visitorRef, {
+            count: 1,
+          });
+        }
+
+        localStorage.setItem("portfolio-visited", "true");
+      }
+
+      const latest = await getDoc(visitorRef);
+
+      if (latest.exists()) {
+        setVisitors(latest.data().count);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  updateVisitors();
+}, []);
   return (
     <footer className="relative border-t border-white/5 pt-14 pb-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -79,7 +133,7 @@ export default function Footer() {
           </p>
 
           {/* Right */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             {/* Status */}
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5">
@@ -90,6 +144,15 @@ export default function Footer() {
               <span className="text-xs text-muted whitespace-nowrap">
                 Open to Internships • Freelance • Collaborations
               </span>
+<div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+  <Eye size={15} className="text-primary" />
+
+  <span className="text-xs text-muted whitespace-nowrap">
+    {visitors === null
+      ? "Loading..."
+      : `${visitors.toLocaleString()} Visitors`}
+  </span>
+</div>
             </div>
             <a
               href="#home"

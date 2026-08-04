@@ -9,25 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
+    "@studio-freight/lenis": "^1.0.42",
+    "firebase": "^12.17.0",
+    "framer-motion": "^11.3.8",
+    "gsap": "^3.12.5",
+    "lucide-react": "^0.408.0",
     "next": "14.2.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^11.3.8",
-    "react-icons": "^5.2.1",
-    "gsap": "^3.12.5",
-    "react-type-animation": "^3.2.0",
-    "@studio-freight/lenis": "^1.0.42",
-    "swiper": "^11.1.9",
-    "@emailjs/browser": "^4.3.3",
     "react-countup": "^6.5.3",
+    "react-dom": "^18.3.1",
     "react-github-calendar": "^4.4.0",
-    "lucide-react": "^0.408.0"
+    "react-icons": "^5.2.1",
+    "react-type-animation": "^3.2.0",
+    "swiper": "^11.1.9"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.6",
-    "postcss": "^8.4.39",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.5"
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6"
   }
 }
