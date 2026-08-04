@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 
@@ -139,9 +139,15 @@ const filters = ["All", "Frontend", "MERN Stack"];
 
 export default function Projects() {
   const [active, setActive] = useState("All");
-  const filtered =
-    active === "All" ? projects : projects.filter((p) => p.category === active);
+  const [showAll, setShowAll] = useState(false);
+  const filtered = useMemo(() => {
+    const list =
+      active === "All"
+        ? projects
+        : projects.filter((p) => p.category === active);
 
+    return showAll ? list : list.slice(0, 6);
+  }, [active, showAll]);
   return (
     <section id="projects" className="section-padding">
       <div className="max-w-7xl mx-auto px-6">
@@ -234,6 +240,14 @@ export default function Projects() {
               </motion.div>
             ))}
           </AnimatePresence>
+        </div>
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => setShowAll((prev) => !prev)}
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium hover:scale-105 transition-all duration-300"
+          >
+            {showAll ? "Show Less" : "See More Projects"}
+          </button>
         </div>
       </div>
     </section>
