@@ -7,7 +7,7 @@ const items = [
   {
     type: "education",
     title: "BSCS",
-    date: "2023 - Present",
+    date: "2024 - Present",
     place: "Federal Urdu University of Arts, Science & Technology (FUUAST), Karachi",
     desc: "Currently pursuing a Bachelor's degree in Computer Science with focus on software development, web technologies, and problem-solving.",
   },
