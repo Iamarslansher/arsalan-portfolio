@@ -25,7 +25,7 @@ const projects = [
     desc: "A full booking platform with auth, scheduling, and admin dashboard.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
     code: "https://github.com/Iamarslansher/local-services",
-    live: "https://service-smart.vercel.app/",
+    live: "https://local-services-three.vercel.app/",
   },
   {
     title: "E-Commerce Platform",
