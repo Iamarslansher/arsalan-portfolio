@@ -27,6 +27,8 @@ export default function Hero() {
           <div className="text-xl sm:text-2xl font-semibold text-muted mb-6 h-10">
             <TypeAnimation
               sequence={[
+                "MERN Stack Developer",
+                2000,
                 "Frontend Developer",
                 2000,
                 "Web Developer",
@@ -35,7 +37,7 @@ export default function Hero() {
                 2000,
                 "Next.js Developer",
                 2000,
-                "MERN Stack Developer",
+                "Prompt Engineer",
                 2000,
               ]}
               wrapper="span"

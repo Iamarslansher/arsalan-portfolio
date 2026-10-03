@@ -155,8 +155,8 @@ export default function GithubActivity() {
               GitHub <span className="text-gradient">Activity</span>
             </h2>
             <p className="text-muted max-w-xl mx-auto text-sm">
-              Live GitHub data — contributions, languages & stats, updated in
-              real time. ✨
+              Live GitHub data contributions, languages & stats, updated in real
+              time. ✨
             </p>
           </div>
         </FadeIn>
