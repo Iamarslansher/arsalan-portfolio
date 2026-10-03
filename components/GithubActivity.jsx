@@ -4,7 +4,15 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import GitHubCalendar from "react-github-calendar";
 import CountUp from "react-countup";
-import { Star, GitFork, BookOpen, Users, Flame, Zap } from "lucide-react";
+import {
+  Star,
+  GitFork,
+  BookOpen,
+  Users,
+  Flame,
+  Zap,
+  AlertCircle,
+} from "lucide-react";
 
 const USERNAME = "Iamarslansher";
 
@@ -43,6 +51,7 @@ export default function GithubActivity() {
   const [repos, setRepos] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [rateLimited, setRateLimited] = useState(false); // ✅ added
 
   useEffect(() => {
     async function fetchAll() {
@@ -53,6 +62,13 @@ export default function GithubActivity() {
             `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=pushed`,
           ),
         ]);
+
+        // ✅ Rate limit check
+        if (userRes.status === 403 || repoRes.status === 403) {
+          setRateLimited(true);
+          setLoading(false);
+          return;
+        }
 
         if (!userRes.ok || !repoRes.ok) throw new Error("GitHub API error");
 
@@ -67,7 +83,10 @@ export default function GithubActivity() {
         const langResults = await Promise.all(
           top15.map((r) =>
             fetch(r.languages_url)
-              .then((res) => res.json())
+              .then((res) => {
+                if (res.status === 403) throw new Error("rate limited"); // ✅
+                return res.json();
+              })
               .catch(() => ({})),
           ),
         );
@@ -136,11 +155,21 @@ export default function GithubActivity() {
               GitHub <span className="text-gradient">Activity</span>
             </h2>
             <p className="text-muted max-w-xl mx-auto text-sm">
-              Live GitHub data contributions, languages & stats, updated in real
-              time. ✨
+              Live data fetched directly from my GitHub account — contributions,
+              languages, and stats updated in real time.
             </p>
           </div>
         </FadeIn>
+
+        {/* ✅ Rate Limit Warning */}
+        {rateLimited && (
+          <FadeIn>
+            <div className="flex items-center justify-center gap-2 mb-6 text-xs text-yellow-400/90 bg-yellow-400/5 border border-yellow-400/20 rounded-xl px-4 py-3 max-w-sm mx-auto">
+              <AlertCircle size={14} className="flex-shrink-0" />
+              GitHub API rate limit reached — refresh after a minute.
+            </div>
+          </FadeIn>
+        )}
 
         {/* ── Row 1: Quick Stat Cards ── */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -155,7 +184,6 @@ export default function GithubActivity() {
                   >
                     <Icon size={20} style={{ color: stat.color }} />
                   </div>
-                  {/* ✅ span + div instead of p tags — fixes hydration error */}
                   <div>
                     <span className="block text-xs text-muted mb-0.5">
                       {stat.label}
@@ -199,7 +227,6 @@ export default function GithubActivity() {
                 </div>
               ) : (
                 <>
-                  {/* Color bar */}
                   <div className="flex rounded-full overflow-hidden h-3 mb-5">
                     {languages.map((lang) => (
                       <div
@@ -212,8 +239,6 @@ export default function GithubActivity() {
                       />
                     ))}
                   </div>
-
-                  {/* Legend */}
                   <div className="space-y-3">
                     {languages.map((lang) => (
                       <div
@@ -286,16 +311,18 @@ export default function GithubActivity() {
               <Zap size={20} className="text-primary" />
               <h3 className="font-display font-semibold">Contribution Graph</h3>
             </div>
-            <GitHubCalendar
-              username={USERNAME}
-              colorScheme="dark"
-              blockSize={13}
-              blockMargin={4}
-              fontSize={13}
-              theme={{
-                dark: ["#111827", "#0e3a45", "#0a6f80", "#06B6D4", "#8B5CF6"],
-              }}
-            />
+            <div className="flex justify-center">
+              <GitHubCalendar
+                username={USERNAME}
+                colorScheme="dark"
+                blockSize={13}
+                blockMargin={4}
+                fontSize={13}
+                theme={{
+                  dark: ["#111827", "#0e3a45", "#0a6f80", "#06B6D4", "#8B5CF6"],
+                }}
+              />
+            </div>
           </div>
         </FadeIn>
 
