@@ -14,7 +14,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-const USERNAME = "Iamarslansher";
+const USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 
 const LANG_COLORS = {
   JavaScript: "#F7DF1E",
@@ -51,7 +51,7 @@ export default function GithubActivity() {
   const [repos, setRepos] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [rateLimited, setRateLimited] = useState(false); // ✅ added
+  const [rateLimited, setRateLimited] = useState(false);
 
   useEffect(() => {
     async function fetchAll() {
@@ -155,8 +155,8 @@ export default function GithubActivity() {
               GitHub <span className="text-gradient">Activity</span>
             </h2>
             <p className="text-muted max-w-xl mx-auto text-sm">
-              Live data fetched directly from my GitHub account — contributions,
-              languages, and stats updated in real time.
+              Live GitHub data — contributions, languages & stats, updated in
+              real time. ✨
             </p>
           </div>
         </FadeIn>
