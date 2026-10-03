@@ -14,7 +14,6 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-// const USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 const USERNAME = "Iamarslansher";
 
 const LANG_COLORS = {
