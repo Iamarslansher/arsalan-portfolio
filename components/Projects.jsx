@@ -75,6 +75,15 @@ const projects = [
     live: "https://echoes-of-independence.vercel.app/",
   },
   {
+    title: "Prompt Forge",
+    category: "Frontend",
+    emoji: "🇵🇰",
+    desc: "An interactive storytelling website celebrating Pakistan's journey through history with immersive animations and cinematic UI.",
+    tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "localStorage"],
+    code: "https://github.com/Iamarslansher/prompt-forge",
+    live: "https://prompt-forge.vercel.app/",
+  },
+  {
     title: "Luma Social App",
     category: "Frontend",
     emoji: "📱",
