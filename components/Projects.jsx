@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
+import { FaProductHunt } from "react-icons/fa";
 
 const projects = [
   // ── Client Work ──────────────────────────────────────────
@@ -77,7 +78,7 @@ const projects = [
   {
     title: "Prompt Forge",
     category: "Frontend",
-    emoji: "🇵🇰",
+    emoji: "🤖",
     desc: "An interactive platform to learn Prompt Engineering from beginner to advanced through 5 structured chapters and quizzes.",
     tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "localStorage"],
     code: "https://github.com/Iamarslansher/prompt-forge",
