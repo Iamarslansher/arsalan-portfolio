@@ -78,10 +78,10 @@ const projects = [
     title: "Prompt Forge",
     category: "Frontend",
     emoji: "🇵🇰",
-    desc: "An interactive storytelling website celebrating Pakistan's journey through history with immersive animations and cinematic UI.",
+    desc: "An interactive platform to learn Prompt Engineering from beginner to advanced through 5 structured chapters and quizzes.",
     tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "localStorage"],
     code: "https://github.com/Iamarslansher/prompt-forge",
-    live: "https://prompt-forge.vercel.app/",
+    live: "https://prompt-forge-sigma-ten.vercel.app/",
   },
   {
     title: "Luma Social App",
