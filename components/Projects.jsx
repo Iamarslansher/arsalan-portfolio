@@ -6,18 +6,6 @@ import { Github, ExternalLink } from "lucide-react";
 import { FaProductHunt } from "react-icons/fa";
 
 const projects = [
-  // ── Client Work ──────────────────────────────────────────
-
-  {
-    title: "EthPak Health AI",
-    category: "Client Work",
-    emoji: "🌍",
-    desc: "International collaborative project — AI-powered healthcare and disease risk analysis platform built with a partner from Ethiopia.",
-    tech: ["React", "FastAPI", "MongoDB", "Python", "Gemini AI"],
-    code: "https://github.com/Iamarslansher",
-    live: "https://eth-pak-health-ai.vercel.app/",
-  },
-
   // ── MERN Stack ───────────────────────────────────────────
   {
     title: "Service Booking App",
@@ -83,6 +71,24 @@ const projects = [
     tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "localStorage"],
     code: "https://github.com/Iamarslansher/prompt-forge",
     live: "https://prompt-forge-sigma-ten.vercel.app/",
+  },
+  {
+    title: "Listing Loom",
+    category: "Frontend",
+    emoji: "⚡",
+    desc: "ListingLoom is an AI tool that instantly generates high-converting, SEO-optimized e-commerce product listings for Amazon, Shopify, eBay and more.",
+    tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
+    code: "https://github.com/Iamarslansher/listing-loom",
+    live: "https://listing-loom-mu.vercel.app/",
+  },
+  {
+    title: "EthPak Health AI",
+    category: "Frontend",
+    emoji: "🌍",
+    desc: "AI-powered healthcare and disease risk analysis platform built.",
+    tech: ["React", "localStorage", "Dummy data", "Gemini AI"],
+    code: "https://github.com/Iamarslansher",
+    live: "https://eth-pak-health-ai.vercel.app/",
   },
   {
     title: "Luma Social App",
@@ -167,10 +173,9 @@ const projects = [
   },
 ];
 
-const filters = ["All", "Client Work", "MERN Stack", "Frontend"];
+const filters = ["All", "MERN Stack", "Frontend"];
 
 const categoryColors = {
-  "Client Work": "text-emerald-400 border-emerald-400/30 bg-emerald-400/10",
   "MERN Stack": "text-primary border-primary/30 bg-primary/10",
   Frontend: "text-secondary border-secondary/30 bg-secondary/10",
 };
