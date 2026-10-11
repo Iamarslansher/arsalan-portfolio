@@ -100,15 +100,6 @@ const projects = [
     live: "https://luma-social-app.vercel.app/",
   },
   {
-    title: "Medcare",
-    category: "Frontend",
-    emoji: "🏥",
-    desc: "A healthcare landing experience with appointment booking UI.",
-    tech: ["React", "Framer Motion"],
-    code: "https://github.com/Iamarslansher/medical-health-care",
-    live: "https://arslan-medcare.netlify.app/",
-  },
-  {
     title: "SchedNova",
     category: "Frontend",
     emoji: "🗓️",
