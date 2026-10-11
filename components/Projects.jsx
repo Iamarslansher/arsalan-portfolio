@@ -145,15 +145,6 @@ const projects = [
     live: "https://sasta-app.vercel.app/",
   },
   {
-    title: "Task Management App",
-    category: "Frontend",
-    emoji: "✅",
-    desc: "A kanban-style task manager with drag and drop.",
-    tech: ["React", "Local Storage"],
-    code: "https://github.com/Iamarslansher",
-    live: "https://arslan-taskmanagement.netlify.app",
-  },
-  {
     title: "Personal Portfolio",
     category: "Frontend",
     emoji: "🗂️",
