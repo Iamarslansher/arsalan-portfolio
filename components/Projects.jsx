@@ -3,9 +3,21 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
-import { FaProductHunt } from "react-icons/fa";
 
 const projects = [
+  // ── AI Agent ─────────────────────────────────────────────
+  {
+    title: "Job Search Agent",
+    category: "AI Agent",
+    emoji: "🤖",
+    desc: "Automated Python AI agent that searches job openings from target companies daily at 9AM & 4PM. Sends email alerts with company name, apply link, location & salary — duplicate-free.",
+    tech: ["Python", "AI Agent", "SMTP", "Automation", "Scheduler"],
+    code: "",
+    live: "",
+    localOnly: true,
+    privateRepo: true,
+  },
+
   // ── MERN Stack ───────────────────────────────────────────
   {
     title: "Service Booking App",
@@ -66,7 +78,7 @@ const projects = [
   {
     title: "Prompt Forge",
     category: "Frontend",
-    emoji: "🤖",
+    emoji: "✨",
     desc: "An interactive platform to learn Prompt Engineering from beginner to advanced through 5 structured chapters and quizzes.",
     tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "localStorage"],
     code: "https://github.com/Iamarslansher/prompt-forge",
@@ -76,7 +88,7 @@ const projects = [
     title: "Listing Loom",
     category: "Frontend",
     emoji: "⚡",
-    desc: "ListingLoom is an AI tool that instantly generates high-converting, SEO-optimized e-commerce product listings for Amazon, Shopify, eBay and more.",
+    desc: "AI tool that instantly generates high-converting, SEO-optimized e-commerce product listings for Amazon, Shopify, eBay and more.",
     tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
     code: "https://github.com/Iamarslansher/listing-loom",
     live: "https://listing-loom-mu.vercel.app/",
@@ -155,9 +167,10 @@ const projects = [
   },
 ];
 
-const filters = ["All", "MERN Stack", "Frontend"];
+const filters = ["All", "AI Agent", "MERN Stack", "Frontend"];
 
 const categoryColors = {
+  "AI Agent": "text-orange-400 border-orange-400/30 bg-orange-400/10",
   "MERN Stack": "text-primary border-primary/30 bg-primary/10",
   Frontend: "text-secondary border-secondary/30 bg-secondary/10",
 };
@@ -194,7 +207,7 @@ export default function Projects() {
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted text-sm mt-3 max-w-lg mx-auto">
-            A mix of client work, full-stack apps, and frontend experiences I've
+            A mix of AI agents, full-stack apps, and frontend experiences I've
             designed and built.
           </p>
         </motion.div>
@@ -243,6 +256,14 @@ export default function Projects() {
                   >
                     {p.category}
                   </span>
+
+                  {/* Local Only badge — top left */}
+                  {p.localOnly && (
+                    <span className="absolute top-3 left-3 flex items-center gap-1.5 text-[10px] px-2.5 py-1 rounded-full bg-green-400/10 border border-green-400/30 text-green-400 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                      Runs Locally
+                    </span>
+                  )}
                 </div>
 
                 {/* Card body */}
@@ -268,22 +289,37 @@ export default function Projects() {
 
                   {/* Buttons */}
                   <div className="flex gap-3">
+                    {/* Code button */}
                     <a
-                      href={p.code || "#"}
+                      href={
+                        p.privateRepo
+                          ? "https://github.com/Iamarslansher"
+                          : p.code || "#"
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full border border-white/15 hover:border-primary/50 hover:text-primary transition-colors"
                     >
-                      <Github size={15} /> Code
+                      <Github size={15} />
+                      {p.privateRepo ? "Private" : "Code"}
                     </a>
-                    <a
-                      href={p.live || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
-                    >
-                      <ExternalLink size={15} /> Live
-                    </a>
+
+                    {/* Live / Local Only button */}
+                    {p.localOnly ? (
+                      <span className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full bg-white/5 border border-white/10 text-muted cursor-default select-none">
+                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                        Local Only
+                      </span>
+                    ) : (
+                      <a
+                        href={p.live || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
+                      >
+                        <ExternalLink size={15} /> Live
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
