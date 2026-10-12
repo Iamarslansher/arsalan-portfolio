@@ -10,7 +10,7 @@ const projects = [
     title: "Job Search Agent",
     category: "AI Agent",
     emoji: "🤖",
-    desc: "Automated Python AI agent that searches job openings from target companies daily at 9AM & 4PM. Sends email alerts with company name, apply link, location & salary — duplicate-free.",
+    desc: "Automated Python AI agent that searches job openings from target companies daily at 9AM & 4PM. Sends email alerts with company name, apply link, location & salary.",
     tech: ["Python", "AI Agent", "SMTP", "Automation", "Scheduler"],
     code: "",
     live: "",
