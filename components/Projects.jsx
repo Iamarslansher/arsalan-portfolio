@@ -67,13 +67,13 @@ const projects = [
 
   // ── Frontend ─────────────────────────────────────────────
   {
-    title: "Echoes of Independence",
+    title: "AI Job Tracker",
     category: "Frontend",
-    emoji: "🇵🇰",
-    desc: "An interactive storytelling website celebrating Pakistan's journey through history with immersive animations and cinematic UI.",
-    tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion"],
-    code: "https://github.com/Iamarslansher/echoes-of-independence",
-    live: "https://echoes-of-independence.vercel.app/",
+    emoji: "🤖",
+    desc: "A simple yet powerful job tracking app that helps you stay organized and motivated throughout your job search.",
+    tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
+    code: "https://github.com/Iamarslansher/ai-job-tracker",
+    live: "https://ai-job-tracker.vercel.app/",
   },
   {
     title: "Prompt Forge",
@@ -92,6 +92,15 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
     code: "https://github.com/Iamarslansher/listing-loom",
     live: "https://listing-loom-mu.vercel.app/",
+  },
+  {
+    title: "Echoes of Independence",
+    category: "Frontend",
+    emoji: "🇵🇰",
+    desc: "An interactive storytelling website celebrating Pakistan's journey through history with immersive animations and cinematic UI.",
+    tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion"],
+    code: "https://github.com/Iamarslansher/echoes-of-independence",
+    live: "https://echoes-of-independence.vercel.app/",
   },
   {
     title: "EthPak Health AI",
