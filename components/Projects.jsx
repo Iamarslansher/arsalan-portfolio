@@ -72,8 +72,8 @@ const projects = [
     emoji: "🤖",
     desc: "A simple yet powerful job tracking app that helps you stay organized and motivated throughout your job search.",
     tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
-    code: "https://github.com/Iamarslansher/ai-job-tracker",
-    live: "https://ai-job-tracker.vercel.app/",
+    code: "https://github.com/Iamarslansher/job-traker-ai",
+    live: "https://job-traker-ai.vercel.app/",
   },
   {
     title: "Prompt Forge",
