@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ArrowDown, Download, Send } from "lucide-react";
+import AvailabilityBadge from "@/components/AvailabilityBadge";
 
 export default function Hero() {
   return (
@@ -23,6 +24,9 @@ export default function Hero() {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
             Arsalan <span className="text-gradient">Sher</span>
           </h1>
+          <div className="mb-5">
+            <AvailabilityBadge />
+          </div>
 
           <div className="text-xl sm:text-2xl font-semibold text-muted mb-6 h-10">
             <TypeAnimation

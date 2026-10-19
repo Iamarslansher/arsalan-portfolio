@@ -1,4 +1,5 @@
 import { Poppins, Inter } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -52,7 +53,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="bg-bg text-text antialiased noise-bg">{children}</body>
+      <body className="bg-bg text-text antialiased noise-bg">
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      </body>
     </html>
   );
 }

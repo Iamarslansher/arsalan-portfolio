@@ -11,6 +11,7 @@ import GithubActivity from "@/components/GithubActivity";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PortfolioChatbot from "@/components/PortfolioChatbot";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <PortfolioChatbot />
     </SmoothScrollProvider>
   );
 }

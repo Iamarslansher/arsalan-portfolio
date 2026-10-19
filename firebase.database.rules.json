@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "portfolioPresence": {
+      "users": {
+        ".read": true,
+        "$uid": {
+          "connections": {
+            "$connectionId": {
+              ".write": "auth != null && auth.uid === $uid",
+              ".validate": "newData.val() === true"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,183 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
-
-const projects = [
-  // ── AI Agent ─────────────────────────────────────────────
-  {
-    title: "Job Search Agent",
-    category: "AI Agent",
-    emoji: "🤖",
-    desc: "Automated Python AI agent that searches job openings from target companies daily at 9AM & 4PM. Sends email alerts with company name, apply link, location & salary.",
-    tech: ["Python", "AI Agent", "SMTP", "Automation", "Scheduler"],
-    code: "",
-    live: "",
-    localOnly: true,
-    privateRepo: true,
-  },
-
-  // ── MERN Stack ───────────────────────────────────────────
-  {
-    title: "Service Booking App",
-    category: "MERN Stack",
-    emoji: "📅",
-    desc: "A full booking platform with auth, scheduling, and admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
-    code: "https://github.com/Iamarslansher/local-services",
-    live: "https://local-services-three.vercel.app/",
-  },
-  {
-    title: "E-Commerce Platform",
-    category: "MERN Stack",
-    emoji: "🛍️",
-    desc: "A complete online store with cart, checkout, and order management.",
-    tech: ["React", "Node.js", "MongoDB", "Redux"],
-    code: "https://github.com/Iamarslansher/complete-olxWebsite",
-    live: "https://olx-mearm-stack.netlify.app/",
-  },
-  {
-    title: "Expense Tracker",
-    category: "MERN Stack",
-    emoji: "💰",
-    desc: "Track income and expenses with charts and category breakdowns.",
-    tech: ["React", "Express", "MongoDB"],
-    code: "https://github.com/Iamarslansher/finance-tracker-frontend",
-    live: "https://arslan-financetracker.netlify.app",
-  },
-  {
-    title: "Todo List",
-    category: "MERN Stack",
-    emoji: "📝",
-    desc: "A simple todo list app with authentication and task management.",
-    tech: ["Next.js", "Express.js", "Node.js", "MongoDB"],
-    code: "https://github.com/Iamarslansher/todolist-nextjs",
-    live: "https://todolist-nextjs-rho.vercel.app/",
-  },
-  {
-    title: "Lab of Code",
-    category: "MERN Stack",
-    emoji: "🧪",
-    desc: "An interactive coding resources and tutorials hub.",
-    tech: ["React", "Express.js", "Node.js", "MongoDB"],
-    code: "https://github.com/Iamarslansher/coderInstitute-frontend",
-    live: "https://labofcode.vercel.app/",
-  },
-
-  // ── Frontend ─────────────────────────────────────────────
-  {
-    title: "AI Job Tracker",
-    category: "Frontend",
-    emoji: "🤖",
-    desc: "A simple yet powerful job tracking app that helps you stay organized and motivated throughout your job search.",
-    tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
-    code: "https://github.com/Iamarslansher/job-traker-ai",
-    live: "https://job-traker-ai.vercel.app/",
-  },
-  {
-    title: "Prompt Forge",
-    category: "Frontend",
-    emoji: "✨",
-    desc: "An interactive platform to learn Prompt Engineering from beginner to advanced through 5 structured chapters and quizzes.",
-    tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "localStorage"],
-    code: "https://github.com/Iamarslansher/prompt-forge",
-    live: "https://prompt-forge-sigma-ten.vercel.app/",
-  },
-  {
-    title: "Listing Loom",
-    category: "Frontend",
-    emoji: "⚡",
-    desc: "AI tool that instantly generates high-converting, SEO-optimized e-commerce product listings for Amazon, Shopify, eBay and more.",
-    tech: ["Next.js", "Tailwind CSS", "Firebase", "Gemini AI"],
-    code: "https://github.com/Iamarslansher/listing-loom",
-    live: "https://listing-loom-mu.vercel.app/",
-  },
-  {
-    title: "Echoes of Independence",
-    category: "Frontend",
-    emoji: "🇵🇰",
-    desc: "An interactive storytelling website celebrating Pakistan's journey through history with immersive animations and cinematic UI.",
-    tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion"],
-    code: "https://github.com/Iamarslansher/echoes-of-independence",
-    live: "https://echoes-of-independence.vercel.app/",
-  },
-  {
-    title: "EthPak Health AI",
-    category: "Frontend",
-    emoji: "🌍",
-    desc: "AI-powered healthcare and disease risk analysis platform built.",
-    tech: ["React", "localStorage", "Dummy data", "Gemini AI"],
-    code: "https://github.com/Iamarslansher",
-    live: "https://eth-pak-health-ai.vercel.app/",
-  },
-  {
-    title: "Luma Social App",
-    category: "Frontend",
-    emoji: "📱",
-    desc: "A social feed UI with posts, likes, comments, and profiles.",
-    tech: ["Next.js", "Tailwind CSS", "Firebase", "Cloudinary"],
-    code: "https://github.com/Iamarslansher/social-mediaApp",
-    live: "https://luma-social-app.vercel.app/",
-  },
-  {
-    title: "SchedNova",
-    category: "Frontend",
-    emoji: "🗓️",
-    desc: "A scheduling app with auth, scheduling, and admin dashboard.",
-    tech: ["React", "Local Storage"],
-    code: "https://github.com/Iamarslansher/SchedNova",
-    live: "https://schednova.netlify.app/",
-  },
-  {
-    title: "Pizzeria Web",
-    category: "Frontend",
-    emoji: "🍕",
-    desc: "A restaurant website with menu showcase and ordering UI.",
-    tech: ["React", "CSS3", "Redux"],
-    code: "https://github.com/Iamarslansher/pizzeria-web-redux",
-    live: "https://pizzeria-navy.vercel.app/",
-  },
-  {
-    title: "Coin Tracker Crypto",
-    category: "Frontend",
-    emoji: "🪙",
-    desc: "Live crypto price tracker with charts and watchlists.",
-    tech: ["React", "Chart.js"],
-    code: "https://github.com/Iamarslansher/coin-tracker",
-    live: "https://arsalan-coin-tracker.netlify.app/",
-  },
-  {
-    title: "Weather Forecast App",
-    category: "Frontend",
-    emoji: "🌤️",
-    desc: "A weather forecasting app with real-time updates and alerts.",
-    tech: ["React", "Local Storage"],
-    code: "https://github.com/Iamarslansher/weather-app",
-    live: "https://arslan-weather-app.netlify.app/",
-  },
-  {
-    title: "Sasta Shop App",
-    category: "Frontend",
-    emoji: "🏪",
-    desc: "An e-commerce website for a local shop with product listings and shopping cart.",
-    tech: ["React", "Firebase"],
-    code: "https://github.com/Iamarslansher/sasta-app",
-    live: "https://sasta-app.vercel.app/",
-  },
-  {
-    title: "Personal Portfolio",
-    category: "Frontend",
-    emoji: "🗂️",
-    desc: "A previous personal portfolio iteration showcasing my work.",
-    tech: ["Next.js", "Tailwind CSS"],
-    code: "https://github.com/Iamarslansher/my_Portfolio",
-    live: "#",
-  },
-];
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+import { portfolioData } from "@/src/data/portfolioData";
 
 const filters = ["All", "AI Agent", "MERN Stack", "Frontend"];
-
 const categoryColors = {
   "AI Agent": "text-orange-400 border-orange-400/30 bg-orange-400/10",
   "MERN Stack": "text-primary border-primary/30 bg-primary/10",
@@ -187,26 +15,27 @@ const categoryColors = {
 export default function Projects() {
   const [active, setActive] = useState("All");
   const [showAll, setShowAll] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const filtered = useMemo(() => {
     const list =
       active === "All"
-        ? projects
-        : projects.filter((p) => p.category === active);
+        ? portfolioData.projects
+        : portfolioData.projects.filter((project) => project.category === active);
     return showAll ? list : list.slice(0, 6);
   }, [active, showAll]);
 
-  const totalCount = (f) =>
-    f === "All"
-      ? projects.length
-      : projects.filter((p) => p.category === f).length;
+  const count = (filter) =>
+    filter === "All"
+      ? portfolioData.projects.length
+      : portfolioData.projects.filter((project) => project.category === filter)
+          .length;
 
   return (
     <section id="projects" className="section-padding">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-10"
@@ -216,130 +45,118 @@ export default function Projects() {
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted text-sm mt-3 max-w-lg mx-auto">
-            A mix of AI agents, full-stack apps, and frontend experiences I've
-            designed and built.
+            A mix of AI agents, full-stack applications, and frontend projects.
           </p>
         </motion.div>
 
-        {/* Filters */}
         <div className="flex justify-center gap-3 mb-12 flex-wrap">
-          {filters.map((f) => (
+          {filters.map((filter) => (
             <button
-              key={f}
+              key={filter}
+              type="button"
+              aria-pressed={active === filter}
               onClick={() => {
-                setActive(f);
+                setActive(filter);
                 setShowAll(false);
               }}
               className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
-                active === f
+                active === filter
                   ? "bg-gradient-to-r from-primary to-secondary text-white border-transparent shadow-[0_0_20px_rgba(6,182,212,0.25)]"
                   : "border-white/15 text-muted hover:border-primary/50 hover:text-white"
               }`}
             >
-              {f}
-              <span className="ml-2 text-xs opacity-60">{totalCount(f)}</span>
+              {filter}
+              <span className="ml-2 text-xs opacity-60">{count(filter)}</span>
             </button>
           ))}
         </div>
 
-        {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((p) => (
-              <motion.div
-                layout
-                key={p.title}
-                initial={{ opacity: 0, scale: 0.92 }}
+            {filtered.map((project) => (
+              <motion.article
+                layout={!reduceMotion}
+                key={project.title}
+                initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.92 }}
-                transition={{ duration: 0.25 }}
+                exit={reduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25 }}
                 className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-primary/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all duration-300 group flex flex-col"
               >
-                {/* Card top */}
                 <div className="h-36 bg-gradient-to-br from-primary/15 to-secondary/15 flex items-center justify-center relative overflow-hidden">
-                  <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    {p.emoji}
+                  <span aria-hidden="true" className="text-5xl group-hover:scale-110 transition-transform duration-300">
+                    {project.emoji}
                   </span>
                   <span
-                    className={`absolute top-3 right-3 text-xs px-3 py-1 rounded-full border font-medium ${categoryColors[p.category]}`}
+                    className={`absolute top-3 right-3 text-xs px-3 py-1 rounded-full border font-medium ${categoryColors[project.category]}`}
                   >
-                    {p.category}
+                    {project.category}
                   </span>
-
-                  {/* Local Only badge — top left */}
-                  {p.localOnly && (
-                    <span className="absolute top-3 left-3 flex items-center gap-1.5 text-[10px] px-2.5 py-1 rounded-full bg-green-400/10 border border-green-400/30 text-green-400 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      Runs Locally
+                  {project.localOnly && (
+                    <span className="absolute top-3 left-3 text-[10px] px-2.5 py-1 rounded-full bg-green-400/10 border border-green-400/30 text-green-400 font-medium">
+                      Runs locally
                     </span>
                   )}
                 </div>
 
-                {/* Card body */}
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display font-semibold text-lg mb-2">
-                    {p.title}
+                    {project.title}
                   </h3>
                   <p className="text-muted text-sm mb-4 leading-relaxed flex-1">
-                    {p.desc}
+                    {project.desc}
                   </p>
-
-                  {/* Tech tags */}
                   <div className="flex flex-wrap gap-2 mb-5">
-                    {p.tech.map((t) => (
+                    {project.tech.map((technology) => (
                       <span
-                        key={t}
+                        key={technology}
                         className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-muted border border-white/10"
                       >
-                        {t}
+                        {technology}
                       </span>
                     ))}
                   </div>
-
-                  {/* Buttons */}
                   <div className="flex gap-3">
-                    {/* Code button */}
-                    <a
-                      href={
-                        p.privateRepo
-                          ? "https://github.com/Iamarslansher"
-                          : p.code || "#"
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full border border-white/15 hover:border-primary/50 hover:text-primary transition-colors"
-                    >
-                      <Github size={15} />
-                      {p.privateRepo ? "Private" : "Code"}
-                    </a>
-
-                    {/* Live / Local Only button */}
-                    {p.localOnly ? (
-                      <span className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full bg-white/5 border border-white/10 text-muted cursor-default select-none">
-                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                        Local Only
-                      </span>
-                    ) : (
+                    {project.code ? (
                       <a
-                        href={p.live || "#"}
+                        href={project.code}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full border border-white/15 hover:border-primary/50 hover:text-primary transition-colors"
+                      >
+                        <Github size={15} />
+                        {project.privateRepo ? "GitHub profile" : "Code"}
+                      </a>
+                    ) : (
+                      <span className="flex-1 flex items-center justify-center text-sm py-2 rounded-full border border-white/10 text-muted">
+                        Private project
+                      </span>
+                    )}
+                    {project.live ? (
+                      <a
+                        href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 flex items-center justify-center gap-2 text-sm py-2 rounded-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
                       >
                         <ExternalLink size={15} /> Live
                       </a>
+                    ) : (
+                      <span className="flex-1 flex items-center justify-center text-sm py-2 rounded-full bg-white/5 border border-white/10 text-muted">
+                        Not published
+                      </span>
                     )}
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </AnimatePresence>
         </div>
 
-        {/* Show More / Less */}
         <div className="flex justify-center mt-12">
           <button
-            onClick={() => setShowAll((prev) => !prev)}
+            type="button"
+            onClick={() => setShowAll((previous) => !previous)}
             className="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium hover:scale-105 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all duration-300"
           >
             {showAll ? "Show Less" : "See More Projects"}

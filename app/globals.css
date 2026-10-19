@@ -86,3 +86,27 @@ h4,
 html {
   scroll-behavior: smooth;
 }
+
+:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.chat-icon-button {
+  @apply h-9 w-9 rounded-full text-muted flex items-center justify-center hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary;
+}
+
+.chat-action-link {
+  @apply rounded-full border border-white/10 px-3 py-1.5 text-xs text-primary hover:border-primary/50 hover:text-white;
+}

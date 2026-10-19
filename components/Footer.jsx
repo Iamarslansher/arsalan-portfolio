@@ -9,13 +9,7 @@ import {
   Eye,
 } from "lucide-react";
 
-import {
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-  increment,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
 
 import { db } from "@/lib/firebase";
 
@@ -45,41 +39,46 @@ const socials = [
 export default function Footer() {
   const [visitors, setVisitors] = useState(null);
 
-useEffect(() => {
-  const updateVisitors = async () => {
-    try {
-      const visitorRef = doc(db, "portfolio", "visitors");
+  useEffect(() => {
+    if (!db) {
+      setVisitors(null);
+      return;
+    }
 
-      const alreadyVisited = localStorage.getItem("portfolio-visited");
+    const updateVisitors = async () => {
+      try {
+        const visitorRef = doc(db, "portfolio", "visitors");
 
-      if (!alreadyVisited) {
-        const snapshot = await getDoc(visitorRef);
+        const alreadyVisited = localStorage.getItem("portfolio-visited");
 
-        if (snapshot.exists()) {
-          await updateDoc(visitorRef, {
-            count: increment(1),
-          });
-        } else {
-          await setDoc(visitorRef, {
-            count: 1,
-          });
+        if (!alreadyVisited) {
+          const snapshot = await getDoc(visitorRef);
+
+          if (snapshot.exists()) {
+            await updateDoc(visitorRef, {
+              count: increment(1),
+            });
+          } else {
+            await setDoc(visitorRef, {
+              count: 1,
+            });
+          }
+
+          localStorage.setItem("portfolio-visited", "true");
         }
 
-        localStorage.setItem("portfolio-visited", "true");
+        const latest = await getDoc(visitorRef);
+
+        if (latest.exists()) {
+          setVisitors(latest.data().count);
+        }
+      } catch (err) {
+        console.error(err);
       }
+    };
 
-      const latest = await getDoc(visitorRef);
-
-      if (latest.exists()) {
-        setVisitors(latest.data().count);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  updateVisitors();
-}, []);
+    updateVisitors();
+  }, []);
   return (
     <footer className="relative border-t border-white/5 pt-14 pb-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -127,7 +126,7 @@ useEffect(() => {
 
       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/5">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Left */}
+          {/* Left  */}
           <p className="text-xs text-muted text-center sm:text-left">
             © {new Date().getFullYear()} Arsalan Sher. All rights reserved.
           </p>
@@ -135,24 +134,28 @@ useEffect(() => {
           {/* Right */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             {/* Status */}
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
-              </span>
-
-              <span className="text-xs text-muted whitespace-nowrap">
-                • Freelance • Collaborations
-              </span>
-<div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
-  <Eye size={15} className="text-primary" />
-
-  <span className="text-xs text-muted whitespace-nowrap">
-    {visitors === null
-      ? "Loading..."
-      : `${visitors.toLocaleString()} Visitors`}
-  </span>
-</div>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <div
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md"
+                title="Contact preferences; this is separate from live portfolio connection status."
+              >
+                {/* Live Online Glowing / Blinking Dot */}
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className="text-xs text-muted whitespace-nowrap">
+                  • Freelance • Collaborations
+                </span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+                <Eye size={15} className="text-primary" />
+                <span className="text-xs text-muted whitespace-nowrap">
+                  {visitors === null
+                    ? "Visitor count unavailable"
+                    : `${visitors.toLocaleString()} Visitors`}
+                </span>
+              </div>
             </div>
             <a
               href="#home"
