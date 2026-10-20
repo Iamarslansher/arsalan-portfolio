@@ -6,7 +6,7 @@ import { subscribeToPortfolioPresence } from "@/src/services/presenceService";
 
 const labels = {
   connecting: "Checking connection",
-  online: "Currently online",
+  online: "online",
   offline: "Currently offline",
   unavailable: "Presence not configured",
   "auth-disabled": "Enable Firebase Anonymous Auth",
@@ -18,10 +18,7 @@ export default function AvailabilityBadge() {
   const [status, setStatus] = useState("connecting");
   const reduceMotion = useReducedMotion();
 
-  useEffect(
-    () => subscribeToPortfolioPresence(setStatus),
-    [],
-  );
+  useEffect(() => subscribeToPortfolioPresence(setStatus), []);
 
   const isOnline = status === "online";
   const known = status === "online" || status === "offline";
