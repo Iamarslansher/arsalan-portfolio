@@ -1,3 +1,177 @@
+// "use client";
+// import { useEffect, useState } from "react";
+// import {
+//   Github,
+//   Linkedin,
+//   Instagram,
+//   Facebook,
+//   ArrowUp,
+//   Eye,
+// } from "lucide-react";
+
+// import { doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
+
+// import { db } from "@/lib/firebase";
+
+// const links = [
+//   { name: "Home", href: "#home" },
+//   { name: "About", href: "#about" },
+//   { name: "Projects", href: "#projects" },
+//   { name: "Contact", href: "#contact" },
+// ];
+
+// const socials = [
+//   { icon: Github, href: "https://github.com/Iamarslansher" },
+//   {
+//     icon: Linkedin,
+//     href: "https://www.linkedin.com/in/arsalan-sher-0bb9b32a8/",
+//   },
+//   {
+//     icon: Instagram,
+//     href: "https://www.instagram.com/azlan_chudhary",
+//   },
+//   {
+//     icon: Facebook,
+//     href: "https://www.facebook.com/arslan.salloo",
+//   },
+// ];
+
+// export default function Footer() {
+//   const [visitors, setVisitors] = useState(null);
+
+//   useEffect(() => {
+//     if (!db) {
+//       setVisitors(null);
+//       return;
+//     }
+
+//     const updateVisitors = async () => {
+//       try {
+//         const visitorRef = doc(db, "portfolio", "visitors");
+
+//         const alreadyVisited = localStorage.getItem("portfolio-visited");
+
+//         if (!alreadyVisited) {
+//           const snapshot = await getDoc(visitorRef);
+
+//           if (snapshot.exists()) {
+//             await updateDoc(visitorRef, {
+//               count: increment(1),
+//             });
+//           } else {
+//             await setDoc(visitorRef, {
+//               count: 1,
+//             });
+//           }
+
+//           localStorage.setItem("portfolio-visited", "true");
+//         }
+
+//         const latest = await getDoc(visitorRef);
+
+//         if (latest.exists()) {
+//           setVisitors(latest.data().count);
+//         }
+//       } catch (err) {
+//         console.error(err);
+//       }
+//     };
+
+//     updateVisitors();
+//   }, []);
+//   return (
+//     <footer className="relative border-t border-white/5 pt-14 pb-8">
+//       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+//         <div>
+//           <a href="#home" className="font-display text-2xl font-bold">
+//             <span className="text-gradient">{"<AS"}</span>
+//             <span className="text-white">{" />"}</span>
+//           </a>
+//           <p className="text-muted text-sm mt-3 max-w-xs">
+//             Frontend-Focused MERN Stack Developer building modern, scalable web
+//             experiences.
+//           </p>
+//         </div>
+
+//         <ul className="flex flex-wrap gap-6">
+//           {links.map((l) => (
+//             <li key={l.href}>
+//               <a
+//                 href={l.href}
+//                 className="text-sm text-muted hover:text-primary transition-colors"
+//               >
+//                 {l.name}
+//               </a>
+//             </li>
+//           ))}
+//         </ul>
+
+//         <div className="flex gap-4">
+//           {socials.map((s, i) => {
+//             const Icon = s.icon;
+//             return (
+//               <a
+//                 key={i}
+//                 href={s.href}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center hover:border-primary/50 transition-colors"
+//               >
+//                 <Icon size={16} />
+//               </a>
+//             );
+//           })}
+//         </div>
+//       </div>
+
+//       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/5">
+//         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+//           {/* Left  */}
+//           <p className="text-xs text-muted text-center sm:text-left">
+//             © {new Date().getFullYear()} Arsalan Sher. All rights reserved.
+//           </p>
+
+//           {/* Right */}
+//           <div className="flex flex-wrap items-center justify-center gap-4">
+//             {/* Status */}
+//             <div className="flex flex-wrap items-center justify-center gap-4">
+//               <div
+//                 className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md"
+//                 title="Contact preferences; this is separate from live portfolio connection status."
+//               >
+//                 {/* Live Online Glowing / Blinking Dot */}
+//                 <span className="relative flex h-2.5 w-2.5">
+//                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+//                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+//                 </span>
+//                 <span className="text-xs text-muted whitespace-nowrap">
+//                   • Freelance • Collaborations
+//                 </span>
+//               </div>
+//               <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+//                 <Eye size={15} className="text-primary" />
+//                 <span className="text-xs text-muted whitespace-nowrap">
+//                   {visitors === null
+//                     ? "Visitor count unavailable"
+//                     : `${visitors.toLocaleString()} Visitors`}
+//                 </span>
+//               </div>
+//             </div>
+//             <a
+//               href="#home"
+//               className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center hover:-translate-y-1 transition-transform"
+//               aria-label="Back to top"
+//             >
+//               <ArrowUp size={18} />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
+// ===
 "use client";
 import { useEffect, useState } from "react";
 import {
@@ -39,6 +213,34 @@ const socials = [
 export default function Footer() {
   const [visitors, setVisitors] = useState(null);
 
+  // Auto-typing state for Open To status badge
+  const words = ["Internship", "Freelance", "Collaborations"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const targetWord = words[currentWordIndex];
+    const typingSpeed = isDeleting ? 40 : 80;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setCurrentText(targetWord.substring(0, currentText.length + 1));
+        if (currentText === targetWord) {
+          setTimeout(() => setIsDeleting(true), 1500);
+        }
+      } else {
+        setCurrentText(targetWord.substring(0, currentText.length - 1));
+        if (currentText === "") {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIndex]);
+
   useEffect(() => {
     if (!db) {
       setVisitors(null);
@@ -79,6 +281,7 @@ export default function Footer() {
 
     updateVisitors();
   }, []);
+
   return (
     <footer className="relative border-t border-white/5 pt-14 pb-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -144,8 +347,14 @@ export default function Footer() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
-                <span className="text-xs text-muted whitespace-nowrap">
-                  • Freelance • Collaborations
+
+                {/* Fixed 'Open to' + Auto Generated Typing Words */}
+                <span className="text-xs text-muted whitespace-nowrap flex items-center gap-1">
+                  <span>Open to</span>
+                  <span className="text-emerald-400 font-medium min-w-[95px]">
+                    {currentText}
+                    <span className="animate-pulse ml-0.5 inline-block w-[2px] h-3 bg-emerald-400 align-middle" />
+                  </span>
                 </span>
               </div>
               <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
