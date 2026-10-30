@@ -3,103 +3,60 @@
 import { motion } from "framer-motion";
 import {
   Code2,
-  Globe,
+  Layers,
   Briefcase,
   ShoppingCart,
   LayoutDashboard,
-  Smartphone,
-  Database,
+  Plug,
   Rocket,
-  UserSquare2,
   Wrench,
-  Users,
-  Paintbrush,
-  ShieldCheck,
+  Search,
 } from "lucide-react";
+
 const services = [
   {
     icon: Code2,
     title: "Frontend Development",
-    desc: "Building modern, responsive, and user-friendly web interfaces using React.js, Next.js, Tailwind CSS, Bootstrap, and JavaScript.",
+    desc: "Building modern, responsive, and user-friendly interfaces using React.js, Next.js, Tailwind CSS, and JavaScript.",
   },
-
   {
-    icon: Globe,
+    icon: Layers,
     title: "MERN Stack Development",
-    desc: "Developing full-stack web applications using MongoDB, Express.js, React.js, and Node.js with secure authentication and REST APIs.",
+    desc: "Full-stack web applications with MongoDB, Express.js, React.js, and Node.js, including secure authentication and REST APIs.",
   },
-
   {
     icon: Briefcase,
     title: "Business Websites",
-    desc: "Creating professional business websites that strengthen your online presence and help convert visitors into customers.",
+    desc: "Professional business websites that strengthen your online presence and turn visitors into customers.",
   },
-
   {
     icon: ShoppingCart,
-    title: "E-Commerce Websites",
-    desc: "Building responsive online stores with product management, shopping carts, authentication, and secure checkout experiences.",
+    title: "E-Commerce Development",
+    desc: "Responsive online stores with product management, shopping carts, authentication, and smooth checkout flows.",
   },
-
   {
     icon: LayoutDashboard,
     title: "Admin Dashboards",
-    desc: "Developing responsive admin dashboards with analytics, authentication, CRUD operations, and data visualization.",
+    desc: "Clean admin panels with analytics, authentication, CRUD operations, and data visualization.",
   },
-
   {
-    icon: Smartphone,
-    title: "Responsive Web Design",
-    desc: "Designing websites that deliver a seamless experience across desktops, tablets, and mobile devices.",
+    icon: Plug,
+    title: "API Integration",
+    desc: "Connecting REST APIs, Firebase services, and third-party tools to build dynamic, data-driven applications.",
   },
+];
 
-  {
-    icon: Database,
-    title: "REST API Integration",
-    desc: "Integrating REST APIs, Firebase services, and backend systems to build dynamic and data-driven applications.",
-  },
-
-  {
-    icon: Rocket,
-    title: "Website Deployment",
-    desc: "Deploying and managing web applications on Vercel, Netlify, and Hostinger with performance optimization.",
-  },
-
-  {
-    icon: Paintbrush,
-    title: "UI Implementation",
-    desc: "Converting modern Figma or Adobe XD designs into clean, responsive, and pixel-perfect web interfaces.",
-  },
-
-  {
-    icon: ShieldCheck,
-    title: "Performance & SEO",
-    desc: "Optimizing website speed, accessibility, metadata, and technical SEO for a better user experience.",
-  },
-
-  {
-    icon: UserSquare2,
-    title: "Portfolio Websites",
-    desc: "Designing unique portfolio websites with modern UI, smooth animations, and fully responsive layouts.",
-  },
-
-  {
-    icon: Users,
-    title: "Team Collaboration",
-    desc: "Working effectively with designers, developers, and project managers using Git, GitHub, Agile workflows, and version control.",
-  },
-
-  {
-    icon: Wrench,
-    title: "Website Maintenance",
-    desc: "Providing bug fixes, feature updates, performance improvements, and ongoing website maintenance.",
-  },
+const supporting = [
+  { icon: Rocket, label: "Deployment (Vercel, Netlify, Hostinger)" },
+  { icon: Wrench, label: "Website Maintenance" },
+  { icon: Search, label: "Performance & SEO" },
 ];
 
 export default function Services() {
   return (
     <section id="services" className="section-padding">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -112,6 +69,7 @@ export default function Services() {
           </h2>
         </motion.div>
 
+        {/* Main 6 services */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => {
             const Icon = s.icon;
@@ -135,6 +93,33 @@ export default function Services() {
             );
           })}
         </div>
+
+        {/* Supporting capabilities */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-xs uppercase tracking-[0.2em] text-muted/70 mb-5">
+            Also included
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {supporting.map((item) => {
+              const Icon = item.icon;
+              return (
+                <span
+                  key={item.label}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-sm text-muted hover:border-primary/40 hover:text-white transition-colors"
+                >
+                  <Icon size={15} className="text-primary" />
+                  {item.label}
+                </span>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
