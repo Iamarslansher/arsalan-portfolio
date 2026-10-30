@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { ArrowDown, Download, Send } from "lucide-react";
+import { ArrowDown, ArrowRight, Download, Send } from "lucide-react";
 import AvailabilityBadge from "@/components/AvailabilityBadge";
 
 // ── Code card content: har line = indent + colored segments ──────────
@@ -246,19 +246,12 @@ export default function Hero() {
             scalable, and user-friendly web applications using React, Next.js,
             and the MERN Stack.
           </p>
-
           <div className="flex flex-wrap gap-4">
             <a href="#projects" className="btn-primary flex items-center gap-2">
-              View Projects
-            </a>
-            <a
-              href="/resume.pdf"
-              className="btn-outline flex items-center gap-2"
-            >
-              <Download size={18} /> Download Resume
+              Explore My Work <ArrowRight size={18} />
             </a>
             <a href="#contact" className="btn-outline flex items-center gap-2">
-              <Send size={18} /> Hire Me
+              <Send size={18} /> Let&apos;s Work Together
             </a>
           </div>
         </motion.div>
